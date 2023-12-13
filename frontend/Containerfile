@@ -30,5 +30,5 @@ COPY python /app/python
 COPY static /app/static
 
 WORKDIR /app
-
+ENV BACKEND_NAME=backend
 CMD ["python", "python/main.py"]

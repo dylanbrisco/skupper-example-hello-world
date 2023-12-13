@@ -111,10 +111,9 @@ if __name__ == "__main__":
     parser.add_argument("--host", default="0.0.0.0")
     parser.add_argument("--port", type=int, default=8080)
     parser.add_argument("--backend", metavar="URL", default="http://backend:8080")
-
     args = parser.parse_args()
-
     global backend_url
-    backend_url = args.backend
-
+    backend_url = "http://" + os.environ["BACKEND_NAME"] + ":8080"
+    print(os.environ["BACKEND_NAME"])
+    print(backend_url)
     uvicorn.run(star, host=args.host, port=args.port)
